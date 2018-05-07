@@ -7,7 +7,7 @@
 		revision="1.0.0-SNAPSHOT"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, scalafmt"
-		date="20180507125924"/>
+		date="20180507145004"/>
 	<dependencies>
 		<module organisation="com.mashape.unirest" name="unirest-java">
 			<revision name="1.4.9" status="release" pubdate="20160331165948" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://unirest.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="68">
