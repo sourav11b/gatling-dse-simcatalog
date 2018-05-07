@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.datastax.gatling.simcatalog"
+		module="gatling-dse-simcatalog_2.12"
+		revision="1.0.0-SNAPSHOT"
+		status="integration"
+		publication="20180507125924"
+	>
+		<description>
+		gatling-dse-simcatalog
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+		<conf name="scalafmt" visibility="private" description=""/>
+	</configurations>
+	<publications>
+		<artifact name="gatling-dse-simcatalog_2.12" type="pom" ext="pom" conf="pom"/>
+		<artifact name="gatling-dse-simcatalog_2.12" type="jar" ext="jar" conf="compile"/>
+		<artifact name="gatling-dse-simcatalog_2.12" type="src" ext="jar" conf="compile" e:classifier="sources"/>
+		<artifact name="gatling-dse-simcatalog_2.12" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.5" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.12.5" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.geirsson" name="scalafmt-core_2.12" rev="1.3.0" conf="scalafmt->default(compile)"/>
+		<dependency org="com.lucidchart" name="scalafmt-impl_2.12" rev="1.15-1.0" conf="scalafmt->default(compile)"/>
+		<dependency org="com.datastax.gatling.stress" name="gatling-dse-stress_2.12" rev="1.2.4" conf="compile->default(compile)"/>
+		<dependency org="com.mashape.unirest" name="unirest-java" rev="1.4.9" conf="compile->default(compile)"/>
+		<dependency org="com.github.scopt" name="scopt_2.12" rev="3.7.0" conf="compile->default(compile)"/>
+		<dependency org="org.json4s" name="json4s-native_2.12" rev="3.5.3" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.scala-logging" name="scala-logging_2.12" rev="3.7.2" conf="compile->default(compile)"/>
+		<dependency org="org.apache.commons" name="commons-math3" rev="3.6.1" conf="compile->default(compile)"/>
+		<dependency org="org.apache.commons" name="commons-lang3" rev="3.7" conf="compile->default(compile)"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe" name="config" rev="1.3.2" conf="compile->default(compile)"/>
+		<dependency org="io.gatling.highcharts" name="gatling-charts-highcharts" rev="2.3.0" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.4" conf="test->default(compile)"/>
+		<dependency org="junit" name="junit" rev="4.12" conf="test->default(compile)"/>
+		<dependency org="org.cassandraunit" name="cassandra-unit" rev="3.3.0.2" conf="test->default(compile)"/>
+		<dependency org="org.pegdown" name="pegdown" rev="1.6.0" conf="test->default(compile)"/>
+		<dependency org="org.easymock" name="easymock" rev="3.5.1" conf="test->default(compile)"/>
+		<dependency org="org.fusesource" name="sigar" rev="1.6.4" conf="test->default(compile)"/>
+	</dependencies>
+</ivy-module>
