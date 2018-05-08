@@ -7,7 +7,7 @@
 		revision="1.0.0-SNAPSHOT"
 		conf="scalafmt"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, scalafmt"
-		date="20180507145004"/>
+		date="20180508121704"/>
 	<dependencies>
 		<module organisation="com.lucidchart" name="scalafmt-impl_2.12">
 			<revision name="1.15-1.0" status="release" pubdate="20171223003824" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/lucidsoftware/neo-sbt-scalafmt" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="25">

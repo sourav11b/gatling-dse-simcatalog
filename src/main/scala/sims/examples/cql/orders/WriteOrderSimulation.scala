@@ -31,6 +31,7 @@ class WriteOrderSimulation extends BaseSimulation {
   setUp(
 
     loadGenerator.rampUpToConstant(writeScenario, simConf)
+    
 
   ).assertions(
     // Can add asssertions if wanting to ensure response times are better than X
