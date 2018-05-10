@@ -8,28 +8,23 @@ import scala.collection.JavaConverters._
 import com.github.javafaker.Lorem
 
 
-class DeviceFeed() extends BaseFeed with LazyLogging {
+class NetworkStatisticsByDeviceFeed() extends BaseFeed with LazyLogging {
   
  
   
-  def getDevice: Iterator[Map[String, Any]] = {
-    def rowData = this.getDeviceRow
+  def getStats: Iterator[Map[String, Any]] = {
+    def rowData = this.getRow
     Iterator.continually(rowData)
   }
 
-  protected def getDeviceRow: Map[String, Any] = {
+  protected def getRow: Map[String, Any] = {
     Map(
+       "year_bucket" ->  getRandomEpoch.getYear,
       "mac_address" -> faker.internet().macAddress(), 
       "creation_timestamp" -> getRandomEpoch,
-      "device_status" -> faker.options.option("ACTIVE","INACTIVE"),
-      "device_type" -> faker.options.option("CM","MTA"),
-      "device_make" -> faker.lorem().characters(5, 15, true),
-      "device_model" -> faker.lorem().characters(5, 15, true),
-      "active_accounts" -> Set[String](faker.number().randomNumber(16, true).toString(),faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString()    
-       ).asJava,
+      "class_of_service" -> faker.regexify("[a-zA-Z0-9_.-]{15}"),
+      "ip_address" -> faker.internet().ipV6Address(),
+      "sys_up_time" -> faker.number().numberBetween(600, 525600).toLong
 
 
        

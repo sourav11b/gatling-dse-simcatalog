@@ -8,34 +8,30 @@ import scala.collection.JavaConverters._
 import com.github.javafaker.Lorem
 
 
-class DeviceFeed() extends BaseFeed with LazyLogging {
+class DeviceMoveActivitesFeed extends BaseFeed with LazyLogging {
   
  
   
-  def getDevice: Iterator[Map[String, Any]] = {
-    def rowData = this.getDeviceRow
+  def getActivities: Iterator[Map[String, Any]] = {
+    def rowData = this.getRow
     Iterator.continually(rowData)
   }
 
-  protected def getDeviceRow: Map[String, Any] = {
+  protected def getRow: Map[String, Any] = {
     Map(
       "mac_address" -> faker.internet().macAddress(), 
       "creation_timestamp" -> getRandomEpoch,
-      "device_status" -> faker.options.option("ACTIVE","INACTIVE"),
-      "device_type" -> faker.options.option("CM","MTA"),
-      "device_make" -> faker.lorem().characters(5, 15, true),
-      "device_model" -> faker.lorem().characters(5, 15, true),
-      "active_accounts" -> Set[String](faker.number().randomNumber(16, true).toString(),faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString(),
-        faker.number().randomNumber(16, true).toString()    
-       ).asJava,
+      "assigned_from_account" -> faker.number().randomNumber(16, true).toString(),
+      "assigned_to_account" -> faker.number().randomNumber(16, true).toString(),
+      "activity_code" -> faker.regexify("[A-Z]{2}_[0-9]{5}"),
+      "activity_name"  -> faker.regexify("[A-Z_]{15}")
 
 
        
     )
   }
   
+ 
     
 
 
